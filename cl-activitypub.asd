@@ -15,7 +15,15 @@
                  (:file "core")
                  (:file "activities")
                  (:file "actors")
-                 (:file "objects"))))
+                 (:file "objects")))
+	       
+	       (:module "litepub" :depends-on ("entities")
+		:serial t
+		:components
+		((:file "package")
+		 (:file "core")
+		 (:file "actors")
+		 (:file "objects"))))
   :in-order-to ((test-op (test-op cl-activitypub-test))))
 
 (asdf:defsystem "cl-activitypub-test"
