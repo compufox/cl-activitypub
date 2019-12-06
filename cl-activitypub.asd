@@ -2,7 +2,7 @@
 
 (asdf:defsystem "cl-activitypub"
   :description "An ActivityPub implementation"
-  :author "Jason McBrayer <jmcbray@carcosa.net>"
+  :author ("Jason McBrayer <jmcbray@carcosa.net>" "ava fox <dev@computerfox.xyz>")
   :license "AGPLv3"
   :serial t
   :depends-on ("yason")

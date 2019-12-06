@@ -5,8 +5,8 @@
   (:export ap-object link actor collection ordered-collection
            collection-page ordered-collection-page
            activity intransitive-activity
-           actor as-json as-json-string from-json)
-    (:export accept tentative-accept
+           as-json as-json-string from-json)
+  (:export accept tentative-accept
            invite reject tentative-reject
            travel arrive
            create delete-activity
@@ -19,17 +19,17 @@
            join leave
            view listen-activity read-activity
            question)
-      (:export application
+  (:export application
            person
            group
            organization)
-      (:export article audio
-               document image
-               video note
-               page event
-               place
-               profile
-               tombstone
-               mention))
+  (:export article audio
+           document image
+           video note
+           page event
+           place
+           profile
+           tombstone
+           mention))
 
 

@@ -8,3 +8,5 @@
   ((object-type :reader object-type :initform "Group")))
 (defclass organization (actor)
   ((object-type :reader object-type :initform "Organization")))
+(defclass service (actor)
+  ((object-type :reader object-type :initform "Service")))

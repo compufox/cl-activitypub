@@ -60,19 +60,20 @@
 (defclass collection (ap-object)
   ((total-items :accessor total-items :initarg :total-items) ;; non-negative-integer
    (current :accessor current :initarg :current) ;; CollectionPage or Link
-   (first-item :accessor first-item :initarg :first-item) ;; CollectionPage or Link
-   (last-item :accessor last-item :initarg :last-item) ;; CollectionPage or Link
+   (first :accessor first-item :initarg :first-item) ;; CollectionPage or Link
+   (last :accessor last-item :initarg :last-item) ;; CollectionPage or Link
    (items :accessor items :initarg :items) ;; Object, Link, or ordered list of
                                            ;; objects or links
    (object-type :reader object-type :initform "Collection")))
 
 (defclass ordered-collection (collection)
-  ((object-type :reader object-type :initform "OrderedCollection")))
+  ((object-type :reader object-type :initform "OrderedCollection")
+   (ordered-items :accessor ordered-items :initarg :ordered-items)))
 
 (defclass collection-page (collection)
   ((part-of :accessor part-of :initarg :part-of) ;; Collection or Link
-   (next-page :accessor next-page :initarg :next-page) ;; CollectionPage
-   (prev-page :accessor prev-page :initarg :prev-page) ;; CollectionPage
+   (next :accessor next-page :initarg :next-page) ;; CollectionPage
+   (prev :accessor prev-page :initarg :prev-page) ;; CollectionPage
    (object-type :reader object-type :initform "CollectionPage")))
 
 (defclass ordered-collection-page (ordered-collection collection-page)
@@ -262,4 +263,5 @@
     ((string-equal type-string "Person") (make-instance 'person))
     ((string-equal type-string "Group") (make-instance 'group))
     ((string-equal type-string "Organization") (make-instance 'organization))
+    ((string-equal type-string "Service") (make-instance 'service))
     (t nil)))
