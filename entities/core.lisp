@@ -1,8 +1,8 @@
 (in-package #:clap-entities)
 
 (defclass ap-base ()
-  ((atcontext :accessor atcontext :initarg :atcontext
-              :initform "https://w3c.org/ns/activitystreams")
+  ((@context :accessor atcontext :initarg :atcontext
+             :initform "https://w3c.org/ns/activitystreams")
    (name :accessor name :initarg :name) ;; String
    (media-type :accessor media-type :initarg :media-type) ;; String (Mime media-type)
    (object-type :reader object-type) ;; URI 
