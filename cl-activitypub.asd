@@ -5,7 +5,7 @@
   :author ("Jason McBrayer <jmcbray@carcosa.net>" "ava fox <dev@computerfox.xyz>")
   :license "AGPLv3"
   :serial t
-  :depends-on ("yason")
+  :depends-on ("cl-json")
   :components ((:file "package")
                (:file "cl-activitypub")
                (:module "entities"

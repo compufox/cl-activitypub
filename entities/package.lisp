@@ -1,7 +1,7 @@
 ;;;; package.lisp
 
 (defpackage #:clap-entities
-  (:use #:cl #:yason #:alexandria)
+  (:use #:cl)
   (:export ap-object link actor collection ordered-collection
            collection-page ordered-collection-page
            activity intransitive-activity

@@ -9,20 +9,28 @@
 
 (defclass article (ap-object)
   ((object-type :reader object-type :initform "Article")))
+
 (defclass audio (ap-object)
   ((object-type :reader object-type :initform "Audio")))
+
 (defclass document (ap-object)
   ((object-type :reader object-type :initform "Document")))
+
 (defclass image (ap-object)
   ((object-type :reader object-type :initform "Image")))
+
 (defclass video (ap-object)
   ((object-type :reader object-type :initform "Video")))
+
 (defclass note (ap-object)
   ((object-type :reader object-type :initform "Note")))
+
 (defclass page (document)
   ((object-type :reader object-type :initform "Page")))
+
 (defclass event (ap-object)
   ((object-type :reader object-type :initform "Event")))
+
 (defclass place (ap-object)
   ((accuracy :accessor accuracy :initarg :accuracy)
    (altitude :accessor altitude :initarg :altitude)
@@ -31,9 +39,11 @@
    (radius :accessor radius :initarg :radius)
    (units :accessor units :initarg :units)
    (object-type :reader object-type :initform "Place")))
+
 (defclass profile (ap-object)
   ((describes :accessor describes :initarg :describes)
    (object-type :reader object-type :initform "Profile")))
+
 (defclass tombstone (ap-object)
   ((former-type :accessor former-type :initarg :former-type)
    (deleted :accessor deleted :initarg :deleted)
@@ -41,24 +51,3 @@
 
 (defclass mention (link)
   ((object-type :reader object-type :initform "Mention")))
-
-(defmethod yason:encode-slots progn ((rel relationship))
-  (clap-encode-element rel 'relationship-subject "subject")
-  (clap-encode-element rel 'relationship-object "object"))
-
-(defmethod yason:encode-slots progn ((place place))
-  (clap-encode-element place 'accuracy "accuracy")
-  (clap-encode-element place 'altitude "altitude")
-  (clap-encode-element place 'latitude "latitude")
-  (clap-encode-element place 'longitude "longitude")
-  (clap-encode-element place 'radius "radius")
-  (clap-encode-element place 'units "units"))
-
-(defmethod yason:encode-slots progn ((profile profile))
-  (clap-encode-element profile 'describes "describes"))
-
-(defmethod yason:encode-slots progn ((tomb tombstone))
-  (clap-encode-element tomb 'former-type "formerType")
-  (clap-encode-element tomb 'deleted "deleted"))
-
-
