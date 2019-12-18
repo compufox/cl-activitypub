@@ -5,6 +5,8 @@
 	      :initarg :endpoints)
    (public-key :reader actor-public-key
 	       :initarg :public-key)
+   (discoverable :reader actor-discoverable
+		 :initarg :discoverable)
    (preferred-username :reader actor-preferred-username
 		       :initarg :preferred-username)
    (manually-approves-followers :reader actor-manually-approves-followers
