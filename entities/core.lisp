@@ -5,7 +5,7 @@
              :initform "https://w3c.org/ns/activitystreams")
    (name :accessor name :initarg :name) ;; String
    (media-type :accessor media-type :initarg :media-type) ;; String (Mime media-type)
-   (object-type :reader object-type) ;; URI 
+   (type :reader object-type) ;; URI 
    ))
 
 (defclass ap-object (ap-base)
@@ -35,7 +35,7 @@
    (cc :accessor cc :initarg :cc) ;; Object or Link
    (bcc :accessor bcc :initarg :bcc) ;; Object or Link
    (duration :accessor duration :initarg :duration) ;; xsd:Duration
-   (object-type :reader object-type :initform "Object") ;; URI
+   (type :reader object-type :initform "Object") ;; URI
    ))
 
 (defclass link (ap-base)
@@ -45,7 +45,7 @@
    (height :accessor height :initarg :height) ;; non-negative-integer
    (width :accessor width :initarg :width) ;; non-negative-integer
    (preview :accessor preview :initarg :preview) ;; Link or Object
-   (object-type :reader object-type :initform "Link") ;; URI
+   (type :reader object-type :initform "Link") ;; URI
    ))
 
 ;; Actor is defined in ActivityPub, not ActivityStreams2.
@@ -55,7 +55,7 @@
    (following :accessor following :initarg :following) ;; Collection
    (followers :accessor followers :initarg :followers) ;; Collection
    (liked :accessor liked :initarg :liked) ;; Collection
-   (object-type :reader object-type :initform "Actor")))
+   (type :reader object-type :initform "Actor")))
 
 (defclass collection (ap-object)
   ((total-items :accessor total-items :initarg :total-items) ;; non-negative-integer
@@ -64,20 +64,20 @@
    (last :accessor last-item :initarg :last-item) ;; CollectionPage or Link
    (items :accessor items :initarg :items) ;; Object, Link, or ordered list of
                                            ;; objects or links
-   (object-type :reader object-type :initform "Collection")))
+   (type :reader object-type :initform "Collection")))
 
 (defclass ordered-collection (collection)
-  ((object-type :reader object-type :initform "OrderedCollection")
+  ((type :reader object-type :initform "OrderedCollection")
    (ordered-items :accessor ordered-items :initarg :ordered-items)))
 
 (defclass collection-page (collection)
   ((part-of :accessor part-of :initarg :part-of) ;; Collection or Link
    (next :accessor next-page :initarg :next-page) ;; CollectionPage
    (prev :accessor prev-page :initarg :prev-page) ;; CollectionPage
-   (object-type :reader object-type :initform "CollectionPage")))
+   (type :reader object-type :initform "CollectionPage")))
 
 (defclass ordered-collection-page (ordered-collection collection-page)
-  ((object-type :reader object-type :initform "OrderedCollectionPage")))
+  ((type :reader object-type :initform "OrderedCollectionPage")))
 
 (defclass activity (ap-object)
   ((actor :accessor actor :initarg :actor) ;; Object or Link
@@ -86,7 +86,7 @@
    (result :accessor result :initarg :result) ;; Object or Link
    (origin :accessor origin :initarg :origi) ;; Object or Link
    (instrument :accessor instrument :initarg :instrument) ;; Object or Link
-   (object-type :reader object-type :initform "Activity")))
+   (type :reader object-type :initform "Activity")))
 
 ;; Intransitive activity should be a subtype of activity, but
 ;; we couldn't remove the object property
@@ -96,7 +96,7 @@
    (result :accessor result :initarg :result)
    (origin :accessor origin :initarg :origi)
    (instrument :accessor instrument :initarg :instrument)
-   (object-type :accessor object-type :initform "IntransitiveActivity")))
+   (type :accessor object-type :initform "IntransitiveActivity")))
 
 (defun from-json (json-string)
   "generates a base object from JSON-STRING"

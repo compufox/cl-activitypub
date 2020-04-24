@@ -1,11 +1,11 @@
 (in-package :clap-litepub)
 
 (defclass property-value (litepub-object)
-  ((object-type :reader object-type :initform "PropertyValue")
+  ((type :reader object-type :initform "PropertyValue")
    (value :reader property-value :initarg :value)))
 
 (defclass emoji (litepub-object)
-  ((object-type :reader object-type :initform "Emoji")))
+  ((type :reader object-type :initform "Emoji")))
 
 (defclass public-key (litepub-object)
   ((id :reader id :initarg :id)
@@ -13,4 +13,4 @@
    (public-key-pem :reader public-key-pem :initarg :pem)))
 
 (defclass note (litepub-object)
-  ((object-type :reader object-type :initform "Note")))
+  ((type :reader object-type :initform "Note")))

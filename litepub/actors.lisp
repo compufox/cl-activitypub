@@ -14,16 +14,16 @@
   (:documentation "provides more of the default slots that litepub actors provide"))
 
 (defclass application (litepub-actor)
-  ((object-type :reader object-type :initform "Application")))
+  ((type :reader object-type :initform "Application")))
 
 (defclass person (litepub-actor)
-  ((object-type :reader object-type :initform "Person")))
+  ((type :reader object-type :initform "Person")))
 
 (defclass group (litepub-actor)
-  ((object-type :reader object-type :initform "Group")))
+  ((type :reader object-type :initform "Group")))
 
 (defclass organization (litepub-actor)
-  ((object-type :reader object-type :initform "Organization")))
+  ((type :reader object-type :initform "Organization")))
 
 (defclass service (litepub-actor)
-  ((object-type :reader object-type :initform "Service")))
+  ((type :reader object-type :initform "Service")))
