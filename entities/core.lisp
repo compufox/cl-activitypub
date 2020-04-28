@@ -84,7 +84,7 @@
    (object :accessor object :initarg :object) ;; Object or Link
    (target :accessor target :initarg :target) ;; Object or Link
    (result :accessor result :initarg :result) ;; Object or Link
-   (origin :accessor origin :initarg :origi) ;; Object or Link
+   (origin :accessor origin :initarg :origin) ;; Object or Link
    (instrument :accessor instrument :initarg :instrument) ;; Object or Link
    (type :reader object-type :initform "Activity")))
 
